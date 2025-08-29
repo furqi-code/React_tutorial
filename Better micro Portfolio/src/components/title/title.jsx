@@ -1,5 +1,12 @@
-export function Title(){
-    return (
-        <div><h2 className="text-center">Portfolio</h2></div>
-    )
+export function Title({ content }) {
+  return (
+    <div
+      className={content === "home" ? "text-center" : ""}
+      style={{
+        color: "red",
+      }}
+    >
+      <h2>{content}</h2>
+    </div>
+  );
 }

@@ -12,3 +12,5 @@ export const OPTIONS = {
     description: `Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins`,
   },
 };
+
+export const BUTTONS = ["home", "about", "contact"];

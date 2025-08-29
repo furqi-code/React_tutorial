@@ -3,7 +3,7 @@ export function Button({ children, clickHandler , title}) {
   //     console.log(children + ' clicked') ;
   // }
   return (
-    <button onClick={clickHandler} className="btnn">
+    <button onClick={clickHandler} className="btn">
       {children}
     </button>
   );
