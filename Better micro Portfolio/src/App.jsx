@@ -10,7 +10,6 @@ export function App() {
   function onSet(selection) {
     setContent(selection);
   }
-
   return (
     <>
       <Title content={content}></Title>
