@@ -1,9 +1,9 @@
-export function Button({ children, clickHandler , title}) {
+export function Button({ children, ...props}) {
   // function clickHandler(){
   //     console.log(children + ' clicked') ;
   // }
   return (
-    <button onClick={clickHandler} className="btn">
+    <button className="btn" {...props}>
       {children}
     </button>
   );
