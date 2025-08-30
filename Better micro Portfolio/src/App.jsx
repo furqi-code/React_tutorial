@@ -16,7 +16,7 @@ export function App() {
       <Title content={content}></Title>
       <div className="d-flex justify-content-center align-items-center gap-3 mt-4">
         {BUTTONS.map((buttonTitle) => (
-          <Button clickHandler={() => onSet(buttonTitle)}>{buttonTitle}</Button>
+          <Button onClick={() => onSet(buttonTitle)}>{buttonTitle}</Button>
         ))}
       </div>
       <Discription
