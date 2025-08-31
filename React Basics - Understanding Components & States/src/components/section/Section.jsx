@@ -8,7 +8,7 @@ export function Section({
 console.log('SECTION RENDERED')
   return (
     <WrapperName {...props}>
-      <h1 class="display-4 fw-bold text-body-emphasis">{title}</h1>
+      <h2 class="display-4 fw-bold text-body-emphasis">{title}</h2>
       {children}
     </WrapperName>
   );
