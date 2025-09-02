@@ -6,13 +6,23 @@ export function App() {
   const [taskList, setTaskList] = useState([]);
   const [task, setTask] = useState("");
 
-  const onKeyUp = (event) => setTask(event.target.value);
+  const onChange = (event) => setTask(event.target.value);
 
   return (
     <>
       <Searchbar
-        onKeyUp={onKeyUp}
-        onClick={() => setTaskList([...taskList, { title: task }])}
+        onChange={onChange}
+        onClick={() =>
+          setTaskList([
+            ...taskList,
+            {
+              id: Math.floor(Math.random() * 11),
+              title: task,
+              description: "whtwhtwhtwht",
+              status: "today",
+            },
+          ])
+        }
       />
       {taskList.length === 0 && <h1 className="text-center">Add a Task</h1>}
 
@@ -24,6 +34,8 @@ export function App() {
               discription="lolololololol"
               status="Done"
               key={item.title}
+              onChange={onChange}
+              onClick={() => setTaskList([...taskList, { title: task }])}
             ></Cards>
           ))}
         </div>
