@@ -2,7 +2,10 @@ import { useState } from "react";
 
 export function Cards({ id, title, onTaskEdit, onTaskUpdate, ...props }) {
   const [isEditing, setisEditing] = useState(false);
-
+  const [task, setTask] = useState({
+    id,
+    title,
+  });
   return (
     <div className="">
       <a
@@ -26,10 +29,10 @@ export function Cards({ id, title, onTaskEdit, onTaskUpdate, ...props }) {
                 type="text"
                 placeholder="Edit this Task"
                 name="title"
-                defaultValue={title}
+                defaultValue={task.title}
                 onChange={(event) => {
-                  onTaskEdit({
-                    id,
+                  setTask({
+                    ...task,
                     title: event.target.value,
                   });
                 }}
@@ -60,7 +63,7 @@ export function Cards({ id, title, onTaskEdit, onTaskUpdate, ...props }) {
               className="btn btn-outline-success"
               onClick={() => {
                 setisEditing(false);
-                onTaskUpdate();
+                onTaskUpdate(task);
               }}
             >
               Save

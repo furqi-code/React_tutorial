@@ -3,11 +3,7 @@ import { Cards } from "./components/taskCard.jsx";
 import { useState } from "react";
 
 export function App() {
-  let [task, setTask] = useState({
-    id: undefined,
-    title: "",
-  });
-  let [taskList, setTaskList] = useState([]);
+  const [taskList, setTaskList] = useState([]);
 
   return (
     <>
@@ -16,31 +12,19 @@ export function App() {
       </div>
       <div className="my-2 text-center box">
         <Searchbar
-          {...task}
-          onChange={(event) => setTask({ ...task, title: event.target.value })}
-          onClick={() => {
-            setTaskList([
-              ...taskList,
-              {
-                ...task,
-                id: Math.floor(Math.random() * 21),
-              },
-            ]);
-            setTask({
-              id: undefined,
-              title: "",
-            });
-          }}
+          onTaskAddition={(title) =>
+            setTaskList([...taskList, { id: taskList.length + 1, title }])
+          }
         ></Searchbar>
         {taskList.map((item) => (
           <Cards
             key={item.id}
             {...item}
             onTaskEdit={(editedTask) => setTask(editedTask)}
-            onTaskUpdate={() => {
+            onTaskUpdate={(updatedTask) => {
               setTaskList(
                 taskList.map((item) => {
-                  if (item.id === task.id) return task;
+                  if (item.id === updatedTask.id) return updatedTask;
                   return item;
                 })
               );
