@@ -21,6 +21,9 @@ export function App() {
             key={item.id}
             {...item}
             onTaskEdit={(editedTask) => setTask(editedTask)}
+            onTaskDelete={(id) => {
+              setTaskList(taskList.filter((task) => task.id !== id));
+            }}
             onTaskUpdate={(updatedTask) => {
               setTaskList(
                 taskList.map((item) => {

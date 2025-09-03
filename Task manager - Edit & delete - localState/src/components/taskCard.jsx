@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function Cards({ id, title, onTaskEdit, onTaskUpdate, ...props }) {
+export function Cards({ id, title, onTaskEdit, onTaskUpdate, onTaskDelete, ...props }) {
   const [isEditing, setisEditing] = useState(false);
   const [task, setTask] = useState({
     id,
@@ -53,7 +53,7 @@ export function Cards({ id, title, onTaskEdit, onTaskUpdate, ...props }) {
             </button>
           )}
           {!isEditing && (
-            <button type="button" className="btn btn-outline-danger">
+            <button type="button" className="btn btn-outline-danger" onClick={() => {onTaskDelete(task.id)}}>
               Delete
             </button>
           )}
